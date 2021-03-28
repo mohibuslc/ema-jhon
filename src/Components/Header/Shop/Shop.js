@@ -3,26 +3,36 @@
 import React from 'react'; //@ mandotory@ for this line declare about this page under the react:
 import fakeData from '../../../fakeData'; // for this  line declare to react have one fakeData:
 import {useState} from 'react'; // for this line declare to useState:
+import './Shop.css';
+import Product from '../../Product/Product.js';
+
+
 
 
 
 const Shop = () => {
 
-    const first10 = fakeData.slice(5,20); // 1st 10 data 
+   const first10 = fakeData.slice(0,10)
 
-    const [products, setProducts] = useState(first10);
-
+    const [products, setProducts] = useState(first10)
     return (
-        <div>
-            <h1>This All Product Are abulavale</h1>
+        <div className="shop-container">
 
-            <h3>{products.length}</h3>
-            <ul>
+            <div className="product-container">
+
+                 
+            
                 {
 
-                    products.map(pd => <li>{pd.name}</li>)
+                    products.map(pd => <Product product={pd}></Product>) // call product from product.js.
+
                 }
-                </ul>
+                
+            </div>
+            <div className="cart-container">
+
+                <h2>This Is Cart:</h2>
+            </div>
             
         </div>
     );

@@ -10,11 +10,25 @@ const cart = (props) => {
 
 
     }
+
+    let shipping = 0;
+    if (total > 35){
+        shipping = 0
+    }
+    else if(total > 15){
+        shipping = 0
+    }
+    else if (total > 0){
+
+        shipping =12.99;
+    }
+
     return (
         <div>
           <h4> Order Summery:</h4>
           <h3>Items Orders:{cart.length}</h3>
-          <p>Total Price : {total}</p>
+          <p> Shipping cost:{shipping} </p>
+          <p>Total Price : {total+shipping}</p>
         </div>
     );
 };
